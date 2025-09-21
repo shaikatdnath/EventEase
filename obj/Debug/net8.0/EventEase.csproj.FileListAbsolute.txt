@@ -24,3 +24,4 @@ D:\Importants\Devs\EventEase\obj\Debug\net8.0\refint\EventEase.dll
 D:\Importants\Devs\EventEase\obj\Debug\net8.0\EventEase.pdb
 D:\Importants\Devs\EventEase\obj\Debug\net8.0\EventEase.genruntimeconfig.cache
 D:\Importants\Devs\EventEase\obj\Debug\net8.0\ref\EventEase.dll
+D:\Importants\Devs\EventEase\obj\Debug\net8.0\EventEase.sourcelink.json
