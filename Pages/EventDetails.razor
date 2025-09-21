@@ -1,0 +1,55 @@
+@page "/events/{Id:int}"
+@inject EventService Events
+@inject NavigationManager Nav
+
+<h2>Event Details</h2>
+
+@if (_event is null)
+{
+    <div class="alert alert-warning">Event not found. <a href="/events">Back to list</a></div>
+}
+else
+{
+    <EventCard Event="_event" />
+    <AttendanceTracker EventId="_event.Id" />
+    <h4>Register</h4>
+    <EditForm Model="_registration" OnValidSubmit="OnRegister">
+        <DataAnnotationsValidator />
+        <ValidationSummary />
+        <div class="form-field">
+            <label>Name</label>
+            <InputText @bind-Value="_registration.Name" />
+            <ValidationMessage For="() => _registration.Name" />
+        </div>
+        <div class="form-field">
+            <label>Email</label>
+            <InputText @bind-Value="_registration.Email" />
+            <ValidationMessage For="() => _registration.Email" />
+        </div>
+        <div class="form-field">
+            <label>Tickets</label>
+            <InputNumber @bind-Value="_registration.Tickets" />
+            <ValidationMessage For="() => _registration.Tickets" />
+        </div>
+        <button type="submit" class="btn">Submit</button>
+    </EditForm>
+}
+
+@code {
+    [Parameter] public int Id { get; set; }
+    private Event? _event;
+    private Registration _registration = new();
+
+    protected override async Task OnParametersSetAsync()
+    {
+        _event = await Events.GetByIdAsync(Id);
+    }
+
+    private async Task OnRegister()
+    {
+        if (_event is null) return;
+        await Events.RegisterAsync(_event.Id, _registration.Tickets);
+        _registration = new();
+        Nav.NavigateTo($"/events/{Id}", forceLoad: true);
+    }
+}

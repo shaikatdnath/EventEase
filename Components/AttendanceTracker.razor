@@ -1,0 +1,21 @@
+@inject EventService Events
+@code {
+    [Parameter, EditorRequired] public int EventId { get; set; }
+    private int? _attendance;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var ev = await Events.GetByIdAsync(EventId);
+        _attendance = ev?.RegisteredCount;
+    }
+}
+@if (_attendance is null)
+{
+    <p class="text-danger">Event not found.</p>
+}
+else
+{
+    <div class="tracker">
+        <strong>Attendance:</strong> @_attendance
+    </div>
+}

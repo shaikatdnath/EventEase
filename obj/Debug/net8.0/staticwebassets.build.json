@@ -1,0 +1,39 @@
+{
+  "Version": 1,
+  "Hash": "AqsW/NE0qppSOa7MQIIbXXmeeMd33PbGS2xEgQReZIc=",
+  "Source": "EventEase",
+  "BasePath": "_content/EventEase",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "EventEase\\wwwroot",
+      "Source": "EventEase",
+      "ContentRoot": "D:\\Importants\\Devs\\EventEase\\wwwroot\\",
+      "BasePath": "_content/EventEase",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "D:\\Importants\\Devs\\EventEase\\wwwroot\\css\\site.css",
+      "SourceId": "EventEase",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Importants\\Devs\\EventEase\\wwwroot\\",
+      "BasePath": "_content/EventEase",
+      "RelativePath": "css/site.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\site.css"
+    }
+  ]
+}

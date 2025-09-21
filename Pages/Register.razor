@@ -1,0 +1,6 @@
+@page "/register"
+@inject UserSessionService Session
+
+<h2>Registration</h2>
+<p>Your session: @Session.SessionId (started @Session.StartedAt.ToLocalTime())</p>
+<p>This page demonstrates state stored for the user's session.</p>

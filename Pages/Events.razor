@@ -1,0 +1,20 @@
+@page "/events"
+@inject EventService EventSvc
+
+<h2>All Events</h2>
+@if (_events is null)
+{
+    <p>Loading...</p>
+}
+else
+{
+    foreach (var e in _events)
+    {
+        <EventCard Event="e" IsEditable="true" />
+    }
+}
+
+@code {
+    private List<Event>? _events;
+    protected override async Task OnInitializedAsync() => _events = await EventSvc.GetAllAsync();
+}

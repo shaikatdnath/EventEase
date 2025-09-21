@@ -1,0 +1,30 @@
+@using EventEase.Models
+
+<div class="event-card">
+    @if (IsEditable)
+    {
+        <label>
+            Name:
+            <InputText @bind-Value="Event.Name" />
+        </label>
+        <label>
+            Date:
+            <InputDate @bind-Value="Event.Date" />
+        </label>
+        <label>
+            Location:
+            <InputText @bind-Value="Event.Location" />
+        </label>
+    }
+    else
+    {
+        <h3>@Event.Name</h3>
+        <p>@Event.Date.ToShortDateString()</p>
+        <p>@Event.Location</p>
+    }
+</div>
+
+@code {
+    [Parameter, EditorRequired] public Event Event { get; set; } = default!;
+    [Parameter] public bool IsEditable { get; set; } = false;
+}
